@@ -1,0 +1,33 @@
+#include<iostream>
+#include<cstdlib>
+#include<ctime>
+using namespace std;
+int main(){
+cout<<"Number guessing game!"<<endl;
+cout<<"I have selected a number between 1 to 100 . Try to guess it"<<endl;
+srand(time(0));
+int randomNumber = 1+(rand()%100);
+int maxAttempts = 5;
+int attempts = 0;
+int guess;
+while (attempts < maxAttempts){
+cout<<"Guess the number: "<<endl;
+cin>>guess;
+attempts++;
+if (guess == randomNumber ){
+cout<<"Great! You have guessed the right Number "<<endl;
+break;
+}
+else if(randomNumber < guess){
+cout<<"Number is too low .Try again"<<endl;
+}else {
+cout<<"Number is too high.Try again"<<endl;
+}
+ if (attempts == 3) {
+            cout << "Hint: The number is between " << randomNumber - 10 << " and " << randomNumber + 10 << "." << endl;
+        }
+}
+if(attempts == maxAttempts){
+cout<<"Sorry ! You have reached all attempts. The correct Number was "<<randomNumber<<endl;
+}
+}
